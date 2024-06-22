@@ -1,0 +1,25 @@
+{# templates/transaction/depot.html.twig #}
+{% extends 'template.html.twig' %}
+
+{% block title %}Dépôt{% endblock %}
+
+{% block content %}
+    <h1>Dépôt</h1>
+
+     <div class="row">
+    <div class="col-md-6">
+      <img src="{{ asset('depot.png') }}" class="img-fluid" alt="Add Image">
+    </div>
+    <div class="col-md-6">
+       {{ form_start(form) }}
+        {{ form_row(form.codeCompte) }}
+        {{ form_row(form.montant) }}
+        <button type="submit" class="btn btn-success">Déposer</button>
+    {{ form_end(form) }}
+    </div>
+  </div>
+
+ 
+
+    <a href="{{ path('app_compte_index') }}" class="btn btn-dark btn-sm w-30 mb-3 mt-2">Retour</a>
+{% endblock %}

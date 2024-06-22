@@ -1,0 +1,31 @@
+
+
+{% extends 'template.html.twig' %}
+
+{% block content %}
+    {# <h1>Déposer de l'argent</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.montant) }}
+        <button type="submit">Déposer</button>
+    {{ form_end(form) }} #}
+ <div class="container  card">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="text-dark mt-2">Déposer de l'argent</h1>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <img src="{{ asset('add2.png') }}" class="img-fluid" alt="Add Image">
+    </div>
+    <div class="col-md-6">
+      {{ form_start(form) }}
+        {{ form_row(form.montant) }}
+        {# <button type="submit">Déposer</button> #}
+    {{ form_end(form) }}
+      <!-- Bouton Submit avec classes Bootstrap -->
+      {# <button type="submit" class="btn btn-primary">Enregistrer</button> #}
+    </div>
+  </div>
+</div>
+{% endblock %}

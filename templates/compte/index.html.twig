@@ -1,0 +1,73 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Liste des Comptes{% endblock %}
+{% block link %}
+  compte
+{% endblock %}
+{% block link_a %}
+ listes
+{% endblock %}
+{% block content %}
+  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                      <h4 class="card-title">liste des Clients</h4>
+                     
+                        
+                      <button
+                        class="btn btn-label-info btn-round ms-auto"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addRowModal"
+                      >
+                        <i class="fas fa-download"></i>
+                          <a href="{{ path('app_compte_pdf_list') }}" >
+                    Telecharger
+                      </a>
+                      </button>   
+                    </div>  
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type de Compte</th>
+                <th>Code</th>
+                <th>Solde</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compte in pagination.items %}
+            <tr>
+                <td>{{ compte.id }}</td>
+                <td>{{ compte|class_name }}</td>
+                <td>{{ compte.code }}</td>
+                <td>{{ compte.solde }}</td>
+                <td>
+                    {% if compte|class_name == 'CompteCourant' %}
+                        <a href="{{ path('app_compte_courant_show', {'id': compte.id}) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                    {% elseif compte|class_name == 'CompteEpargne' %}
+                        <a href="{{ path('app_compte_epargne_show', {'id': compte.id}) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                    {% else %}
+                        <span class="btn btn-secondary disabled">Type inconnu</span>
+                    {% endif %}
+               
+                    {% if compte|class_name == 'CompteCourant' %}
+                        <a href="{{ path('app_compte_courant_edit', {'id': compte.id}) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    {% elseif compte|class_name == 'CompteEpargne' %}
+                        <a href="{{ path('app_compte_epargne_edit', {'id': compte.id}) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    {% else %}
+                        <span class="btn btn-secondary disabled">Type inconnu</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun compte trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

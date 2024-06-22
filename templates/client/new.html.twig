@@ -1,0 +1,44 @@
+{% extends 'template.html.twig' %}
+
+{# {% block en %}
+    mory
+{% endblock %} #}
+{# {% block title %}New Client{% endblock %} #}
+{% block link %}
+<li class="nav-item">
+                  <a href="{{path('app_agence_index')}}">
+                      client
+                  </a>
+                </li>
+{% endblock %}
+{% block link2 %}
+  <li class="nav-item">
+                  <a href="{{path('app_agence_index')}}">creation</a>
+                </li>
+{% endblock %}
+{% block content %}
+{# {% include 'Partials/navbar.html.twig' %} #}
+{# {% include 'Partials/menu.html.twig' %} #}
+ <div class="container  card">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="text-dark">Ajout d'un Client</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ asset('add2.png') }}" class="img-fluid" alt="Add Image">
+    </div>
+    <div class="col-md-6">
+      {{ include('client/_form.html.twig') }}
+      <!-- Bouton Submit avec classes Bootstrap -->
+      {# <button type="submit" class="btn btn-primary">Enregistrer</button> #}
+    </div>
+  </div>
+</div>
+
+   
+    <a href="{{ path('app_client_index') }}" class="btn btn-dark btn-sm w-30 mb-3 mt-5">Retour en arriere</a>
+{% endblock %}
+
+

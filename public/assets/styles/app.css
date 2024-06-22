@@ -1,0 +1,16 @@
+/* assets/styles/app.css */
+.navigation {
+  text-align: center;
+}
+.navigation a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  color: #007bff;
+  text-decoration: none;
+}
+.navigation .current,
+.navigation .pagination a:hover {
+  background-color: #007bff;
+  color: white;
+}

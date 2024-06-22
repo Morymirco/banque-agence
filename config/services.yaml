@@ -1,0 +1,25 @@
+parameters:
+  locale: "en" # ou 'fr' selon votre besoin
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    bind:
+      $defaultLocale: "%locale%"
+
+  App\:
+    resource: "../src/*"
+    exclude: "../src/{DependencyInjection,Entity,Tests,Kernel.php}"
+
+  App\Controller\:
+    resource: "../src/Controller"
+    tags: ["controller.service_arguments"]
+
+  App\Twig\AppExtension:
+    tags: ["twig.extension"]
+  # config/services.yaml
+  App\Service\AgencePdf:
+    arguments:
+      $twig: "@twig"
+      $kernel: "@kernel"

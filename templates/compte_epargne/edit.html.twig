@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Edit CompteEpargne{% endblock %}
+
+{% block content %}
+    <h1>Modifier CompteEpargne</h1>
+
+    {{ include('compte_epargne/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_compte_epargne_index') }}" class="btn btn-dark btn-sm w-30 mb-3 mt-2">Retour en arriere </a>
+
+    {{ include('compte_epargne/_delete_form.html.twig') }}
+{% endblock %}

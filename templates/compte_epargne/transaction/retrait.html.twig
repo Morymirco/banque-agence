@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retrait{% endblock %}
+
+{% block body %}
+    <h1>Retrait du compte épargne</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.montant) }}
+        <button class="btn btn-primary">Retirer</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_compte_epargne_show', {'id': compte_epargne.id}) }}" class="btn btn-secondary">Retour au compte</a>
+{% endblock %}

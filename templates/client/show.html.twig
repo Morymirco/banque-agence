@@ -1,0 +1,54 @@
+{# {% extends 'Partials/card.html.twig' %} #}
+{% extends 'template.html.twig' %}
+
+ {% block content %}
+    <h1>Detail du Client</h1>
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+            
+                <th>Id</th>
+                <td>{{ client.id }}</td>
+            </tr>
+            <tr>
+                <th>NumeroClient</th>
+                <td>{{ client.numeroClient }}</td>
+            </tr>
+            <tr>
+                <th>NomClient</th>
+                <td>{{ client.nomClient }}</td>
+            </tr>
+            <tr>
+                <th>PrenomClient</th>
+                <td>{{ client.prenomClient }}</td>
+            </tr>
+            <tr>
+                <th>SexeClient</th>
+                <td>{{ client.sexeClient }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneClient</th>
+                <td>{{ client.telephoneClient }}</td>
+            </tr>
+            <tr>
+                <th>
+                {% block titre_compte %}
+                    Compte
+                {% endblock %}
+                </th>
+{% block solde %}
+     <td class="text-success">{{client.compte.solde}}</td>
+{% endblock %}
+               
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_client_index') }} " class="btn btn-dark btn-sm w-30 mb-3 mt-5">Retour en arriere</a>
+
+    <a href="{{ path('app_client_edit', {'id': client.id}) }}" class="btn btn-warning text-white btn-sm w-30 mb-3 mt-5">Modifier</a>
+
+    {{ include('client/_delete_form.html.twig') }}
+{% endblock %}

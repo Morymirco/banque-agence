@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reçu de Retrait</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .recu { border: 1px solid #000; padding: 20px; }
+        .header { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="recu">
+        <div class="header">
+            <h1>Reçu de Retrait</h1>
+            <p>Date: {{ date|date('d/m/Y H:i') }}</p>
+        </div>
+        <p>Montant retiré: {{ montant }} €</p>
+        <p>Numéro de compte: {{ compte.code }}</p>
+        <p>Solde actuel: {{ compte.solde }} GNF</p>
+    </div>
+</body>
+</html>

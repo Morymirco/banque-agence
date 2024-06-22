@@ -1,0 +1,36 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}New CompteCourant{% endblock %}
+
+{% block content %}
+{# {% include 'Partials/navbar.html.twig' %} #}
+{# {% include 'Partials/menu.html.twig' %} #}
+ <div class="container  card">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="text-dark mt-2">Ajout d'un compte_courant</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ asset('courant.png') }}" class="img-fluid" alt="Add Image">
+    </div>
+    <div class="col-md-6">
+      {{ include('compte_courant/_form.html.twig') }}
+      <!-- Bouton Submit avec classes Bootstrap -->
+      {# <button type="submit" class="btn btn-primary">Enregistrer</button> #}
+    </div>
+  </div>
+</div>
+
+   
+    <a href="{{ path('app_compte_courant_index') }}" class="btn btn-dark btn-sm w-30 mb-3 mt-5">Retour en arriere</a>
+{% endblock %}
+
+{# {% block body %}
+    <h1>Create new CompteCourant</h1>
+
+    {{ include('compte_courant/_form.html.twig') }}
+
+    <a href="{{ path('app_compte_courant_index') }}">back to list</a>
+{% endblock %} #}

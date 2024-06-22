@@ -1,0 +1,58 @@
+
+{# templates/client/pdf.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des clients</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Liste des clients</h1>
+    <table>
+        <thead>
+            <tr>
+                {# <th>Numéro</th> #}
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Sexe</th>
+                <th>Agence</th>
+                <th>Numéro de téléphone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    {# <td>{{ client.numeroClient }}</td> #}
+                    <td>{{ client.nomClient }}</td>
+                    <td>{{ client.prenomClient }}</td>
+                    <td>{{ client.sexeClient }}</td>
+                    <td>{{ client.Agence}}</td>
+                    <td>{{ client.telephoneClient }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+     <div class="footer">
+            <p>Date : {{ "now"|date("d/m/Y") }}</p>
+        </div>
+</body>
+</html>

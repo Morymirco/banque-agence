@@ -1,0 +1,67 @@
+{# templates/agence/pdf_list.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Liste des Agences</title>
+        <style>
+            /* Add any specific styles for your PDF */
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .content {
+                margin: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+            }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Liste des Agences</h1>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for agence in agences %}
+                        <tr>
+                            <td>{{ agence.id }}</td>
+                            <td>{{ agence.code }}</td>
+                            <td>{{ agence.nom }}</td>
+                            <td>{{ agence.adresse }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <p>Date : {{ "now"|date("d/m/Y") }}</p>
+        </div>
+    </body>
+</html>

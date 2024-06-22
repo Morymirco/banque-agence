@@ -1,0 +1,40 @@
+{% extends 'template.html.twig' %}
+
+
+{% block title %}Nouvelle Agence{% endblock %}
+{% block link %}
+ <li class="nav-item">
+                  <a href="{{path('app_agence_index')}}">
+                      agence
+                  </a>
+                </li>
+{% endblock %}
+{% block link2 %}
+    <li class="nav-item">
+                  <a href="{{path('app_agence_new')}}">creation</a>
+                </li>
+{% endblock %}
+
+{% block content %}
+
+ <div class="container  card">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="text-dark font-weight-semibold">Ajout d'une agence</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ asset('add.png') }}" class="img-fluid h-40 w-80" alt="Add Image">
+    </div>
+    <div class="col-md-6">
+      {{ include('agence/_form.html.twig') }}
+      <!-- Bouton Submit avec classes Bootstrap -->
+      {# <button type="submit" class="btn btn-primary">Enregistrer</button> #}
+    </div>
+  </div>
+</div>
+
+   
+    <a href="{{ path('app_agence_index') }}" class="btn btn-dark btn-sm w-30 mb-3 mt-5">Retour en arriere</a>
+{% endblock %}

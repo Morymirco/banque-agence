@@ -1,0 +1,52 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Compte Courant{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1>Compte Courant</h1>
+
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compte_courant.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ compte_courant.code }}</td>
+            </tr>
+            <tr>
+                <th>Solde</th>
+                <td>{{ compte_courant.solde }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row text-center my-4">
+        <div class="col-md-4 mb-3">
+            <a href="{{ path('compte_depot', {'id': compte_courant.id}) }}" class="btn btn-primary text-white">Dépôt</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{{ path('compte_retrait', {'id': compte_courant.id}) }}" class="btn btn-success text-white">Retrait</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{{ path('app_compte_courant_edit', {'id': compte_courant.id}) }}" class="btn btn-warning text-white">Modifier</a>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12 text-center">
+            {{ include('compte_courant/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="{{ path('app_compte_courant_index') }}" class="btn btn-dark btn-sm">Retour en arrière</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

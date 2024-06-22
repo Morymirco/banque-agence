@@ -1,0 +1,52 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}CompteEpargne{% endblock %}
+
+{% block content %}
+    <h1>CompteEpargne</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compte_epargne.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ compte_epargne.code }}</td>
+            </tr>
+            <tr>
+                <th>Solde</th>
+                <td>{{ compte_epargne.solde }}</td>
+            </tr>
+            <tr>
+                <th>TauxInteret</th>
+                <td>{{ compte_epargne.tauxInteret }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <a href="{{ path('compte_epargne_depot', {'id': compte_epargne.id}) }}" class="btn btn-primary text-white w-100">Depot</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ path('compte_epargne_retrait', {'id': compte_epargne.id}) }}" class="btn btn-secondary text-white w-100">Retrait</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ path('app_compte_epargne_edit', {'id': compte_epargne.id}) }}" class="btn btn-warning w-100">Modifier</a>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <a href="{{ path('app_compte_epargne_index') }}" class="btn btn-dark btn-sm w-100 mb-3 mt-2">Retour en arrière</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ include('compte_epargne/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

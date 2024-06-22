@@ -1,0 +1,19 @@
+<!-- templates/compte/pdf.html.twig -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Détail du Compte</title>
+    <style>
+        /* Ajoutez des styles spécifiques pour le PDF ici */
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h1>Détail du Compte</h1>
+    <p>Numéro de compte: {{ compte.id }}</p>
+    {# <p>Client: {{ compte.client.nom }} {{ compte.client.prenom }}</p> #}
+    <p>Solde: {{ compte.solde }}</p>
+    <!-- Ajoutez d'autres détails si nécessaire -->
+</body>
+</html>

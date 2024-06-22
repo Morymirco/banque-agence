@@ -1,0 +1,17 @@
+
+{{ form_start(form) }}
+    {{ form_row(form.code,  {
+        'attr': {'class': 'form-control mb-2', 'placeholder': 'Entrez le code de l\'agence'}
+    })}}
+    {{ form_row(form.nom,  {
+        'attr': {'class': 'form-control mb-2', 'placeholder': 'Entrez le nom de l\'agence'}
+    } )}}
+    {{ form_row(form.adresse,  {
+        'attr': {'class': 'form-control mt-2', 'placeholder': 'Entrez l\'adrese de l\'agence'}
+    } )}}
+
+    {# Bouton de soumission du formulaire #}
+    {# {{ form_row(form.save) }} #}
+
+{{ form_end(form) }}
+

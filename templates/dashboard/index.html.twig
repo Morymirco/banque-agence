@@ -1,0 +1,179 @@
+{# templates/dashboard/index.html.twig #}
+
+{% extends 'template.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block link %}
+   <li class="nav-item">
+                  <a href="{{path('dashboard')}}">
+                      Dashboard
+                  </a>
+                </li>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Bienvenue,{{ email|email_identifier|upper }}</h5>
+                    
+                     {# {{ user.email }}! #}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title">
+               <a href="{{path('app_agence_index')}}">  <i class="fas fa-university fa-3x text-primary d-block"></i> </a>
+                {{ totalAgences }}
+                <span class="ml-2 d-block">Total des Agences</span>
+            </h5>
+            <p class="card-text"><!-- Contenu de card-text --></p>
+        </div>
+    </div>
+</div>
+        <div class="col-md-4">
+            {# <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-3x fa-file-alt  text-warning"></i>
+                        Total des Comptes
+                    </h5>
+                    <p class="card-text">{{ totalComptes }}</p>
+                </div>
+            </div> #}
+            <div class="card mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title">
+                <a href="{{path('app_compte_index')}}"> <i class="fas fa-address-card fa-3x text-warning d-block"></i>  </a>
+               {{ totalComptes }}
+                <span class="ml-2 d-block">  Total des Comptes</span>
+            </h5>
+            <p class="card-text"><!-- Contenu de card-text --></p>
+        </div>
+    </div>
+        </div>
+
+        <div class="col-md-4">
+           <div class="card mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title">
+              <a href="{{path('app_client_index')}}">    <i class="fas fa-users fa-3x text-info d-block"></i>  </a>
+                {{ totalClients }}
+                <span class="ml-2 d-block">Total des Clients</span>
+            </h5>
+            <p class="card-text"><!-- Contenu de card-text --></p>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    {# <div class="row">
+        <div class="col-6">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <img src="{{ asset('mp.jpg') }}" class="img-fluid" alt="Image"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card mb-4">
+                <div class="card-body p-0">
+                    <img src="{{ asset('mp.jpg') }}" class="img-fluid" alt="Image"/>
+                </div>
+            </div>
+        </div>
+    </div> #}
+    <div class="d-flex justify-content-around">
+    <div class="chart-container me-2 shadow-lg p-4 rounded-lg">
+        <canvas id="myChart" width="400" height="280"></canvas>
+    </div>
+    <div class="chart-container ms-2 shadow-lg p-4 ">
+        <canvas id="myChart2" width="400" height="150"></canvas>
+    </div>
+</div>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+       // Script JavaScript dans le template Twig
+document.addEventListener('DOMContentLoaded', function() {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie', // ou 'line', 'pie', etc.
+        data: {
+            labels: ['Clients', 'Comptes', 'Agences'],
+            datasets: [{
+                label: 'Nombre',
+                data: [
+                    {{ totalClients }},
+                    {{ totalComptes }},
+                    {{ totalAgences }}
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+
+
+    
+    });
+});
+ document.addEventListener('DOMContentLoaded', function() {
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Clients Inscrits', 'Comptes'],
+                datasets: [{
+                    label: 'Nombre',
+                    data: [
+                        {{ totalClients }},
+                        {{ totalComptes }}
+                    ],
+                    backgroundColor: [
+                        "#f3545d", // Rouge pour les clients
+                        //  "#fdaf4b",
+                          "#1d7af3"  // Bleu pour les comptes
+                    ],
+                    // borderColor: [
+                    //     'rgba(255, 99, 132, 1)', // Bordure rouge
+                    //     'rgba(54, 162, 235, 1)'  // Bordure bleue
+                    // ],
+                    // borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Désactiver le maintien du ratio d'aspect si nécessaire
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Edit CompteCourant{% endblock %}
+
+{% block content%}
+    <h1>Modifier le Compte </h1>
+
+    {{ include('compte_courant/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    {{ include('compte_courant/_delete_form.html.twig') }}
+    <a href="{{ path('app_compte_courant_index') }}"  class="btn btn-dark btn-sm w-30 mb-3 mt-5">Retour en arriere</a>
+{% endblock %}

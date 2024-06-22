@@ -1,0 +1,26 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {# <button class="btn">{{ button_label|default('Save') }}</button> #}
+{# {{ form_end(form) }} #} 
+
+{{ form_start(form) }}
+
+    {{ form_row(form.Client, {
+        'attr': {'class': 'form-control'}
+    }) }}
+
+    {# Afficher les autres champs après le champ "Agence" #}
+    {# {{ form_row(form.numeroClient, {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un numero'}
+    }) }} #}
+    {{ form_widget(form.code, {'attr': {'readonly': true,'class':'form-control mt-2','label':'Code'}}) }}
+    {{ form_row(form.solde, {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un solde'}
+    }) }}
+    {# {{ form_row(form.sexeClient) }}
+    {{ form_row(form.telephoneClient) }} #}
+
+    {# Bouton de soumission du formulaire #}
+    {{ form_row(form.save) }}
+
+{{ form_end(form) }}

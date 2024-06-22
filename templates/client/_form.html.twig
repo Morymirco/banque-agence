@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+
+    {{ form_row(form.Agence, {
+        'attr': {'class': 'form-control', 'placeholder': 'Sélectionnez une agence'}
+    }) }}
+
+    {# Afficher les autres champs après le champ "Agence" #}
+    {{ form_row(form.numeroClient,
+     {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un numero'}
+    }
+    ) }}
+    {{ form_row(form.nomClient, {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un nom'}
+    }) }}
+    {{ form_row(form.prenomClient, {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un prenom'}
+    }) }}
+    {{ form_row(form.sexeClient, {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un sexe'}
+    }) }}
+    {{ form_row(form.telephoneClient, {
+        'attr': {'class': 'form-control', 'placeholder': 'saisir un telephone'}
+    }) }}
+
+    {# Bouton de soumission du formulaire #}
+    {{ form_row(form.save) }}
+
+{{ form_end(form) }}
+
+ 

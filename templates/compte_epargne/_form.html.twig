@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+{{ form_row(form.Client, {
+        'attr': {'class': 'form-control', 'placeholder': 'Sélectionnez une agence'}
+    }) }}
+      {{ form_widget(form.code, {'attr': {'readonly': true,'class':'form-control mt-2','label':'Code'}}) }}
+    {{ form_widget(form) }}
+    {# <button class="btn">{{ button_label|default('Save') }}</button> #}
+{{ form_end(form) }}
